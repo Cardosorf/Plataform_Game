@@ -3,8 +3,9 @@
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -17,6 +18,7 @@ MonoBehaviour:
   - {fileID: 21300014, guid: bf541ba7810cafd43af665d35d1dc29e, type: 3}
   - {fileID: 21300016, guid: bf541ba7810cafd43af665d35d1dc29e, type: 3}
   - {fileID: 21300018, guid: bf541ba7810cafd43af665d35d1dc29e, type: 3}
-  m_MinSpeed: 1
-  m_MaxSpeed: 1
+  m_MinSpeed: 15
+  m_MaxSpeed: 15
   m_AnimationStartTime: 0
+  m_TileColliderType: 0
