@@ -44,11 +44,12 @@ public class PlayerController : MonoBehaviour
 
         Flip(move);
 
+
+        if (Input.GetKeyDown(KeyCode.Space)) { 
         Jump();
+        }
 
-        
-
-        if(rb.velocity.y == 0f)
+        if (rb.velocity.y == 0f)
         {
             animator.SetBool("isJumping", false);
             animator.SetBool("isFalling", false);
@@ -58,8 +59,8 @@ public class PlayerController : MonoBehaviour
         {
             animator.SetBool("isJumping", true);
             animator.SetBool("isFalling", false);
-            Debug.Log("Jumping");
-            Debug.Log(rb.velocity.y);
+           // Debug.Log("Jumping");
+           // Debug.Log(rb.velocity.y);
 
         }
 
@@ -67,8 +68,8 @@ public class PlayerController : MonoBehaviour
         {
             animator.SetBool("isJumping", false);
             animator.SetBool("isFalling", true);
-            Debug.Log("Falling");
-            Debug.Log(rb.velocity.y);
+            //Debug.Log("Falling");
+            //Debug.Log(rb.velocity.y);
         }
 
 
@@ -97,7 +98,7 @@ public class PlayerController : MonoBehaviour
 
         
 
-        if (Input.GetKeyDown(KeyCode.Space) && !isJumping)
+        if (!isJumping)
         {
             isJumping = true;
             //animator.SetBool("isJumping", true);
@@ -110,7 +111,7 @@ public class PlayerController : MonoBehaviour
 
         //Debug.Log(collision.gameObject.name);
 
-        if (collision.gameObject.CompareTag("Ground"))
+        if (collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("WaterGround"))
         {
             isJumping = false;
 
@@ -124,7 +125,7 @@ public class PlayerController : MonoBehaviour
 
         //Debug.Log(collision.gameObject.name);
 
-        if (collision.gameObject.CompareTag("Ground"))
+        if (collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("WaterGround"))
         {
             isJumping = true;
 
