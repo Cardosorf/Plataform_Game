@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour
     
     private bool facingRight = true;
     private bool isJumping = false;
-    private bool isWater = false;
+    //private bool isWater = false;
 
     float move;
     float jump;
