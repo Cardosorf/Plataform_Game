@@ -12,7 +12,6 @@ public class PlayerController : MonoBehaviour
     
     private bool facingRight = true;
     private bool isJumping = false;
-    //private bool isWater = false;
 
     float move;
     float jump;
@@ -59,9 +58,12 @@ public class PlayerController : MonoBehaviour
         if (move > 0 && !facingRight || move < 0 && facingRight)
         {
             facingRight = !facingRight;
-            Vector3 scale = transform.localScale;
-            scale.x *= -1;
-            transform.localScale = scale; 
+            //Vector3 scale = transform.localScale;
+            //scale.x *= -1;
+            //transform.localScale = scale;
+
+            transform.Rotate(0f,180f,0f);
+
         }
     }
 
