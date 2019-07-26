@@ -45,13 +45,15 @@ public class WaterTrigger : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         //Debug.Log("entrei");
-        StartCoroutine("FadeOut");
+        if(collision.CompareTag("Player"))
+            StartCoroutine("FadeOut");
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
         //Debug.Log("sai");
-        StartCoroutine("FadeIn");
+        if(collision.CompareTag("Player"))
+            StartCoroutine("FadeIn");
     }
 
 

@@ -9,6 +9,10 @@ public class Weapon : MonoBehaviour
 
     public Transform firePoint;
     public GameObject bullet;
+    public bool isTrigged = false;
+    private float timeBtwShots;
+    public float startTimeBtwShots;
+
 
     // Update is called once per frame
     void Update()
@@ -17,14 +21,39 @@ public class Weapon : MonoBehaviour
         float rotZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0f, 0f, rotZ + offset);
 
-        if (Input.GetButtonDown("Fire1"))
+        if(timeBtwShots <= 0)
         {
-            Shoot();
+            if (Input.GetButtonDown("Fire1"))
+            {
+                Shoot();
+                timeBtwShots = startTimeBtwShots;
+            }
         }
+        else
+        {
+            timeBtwShots -= Time.deltaTime;
+        }
+
+
+        
     }
 
     void Shoot()
     {
-        Instantiate(bullet, firePoint.position, transform.rotation);
+        if(isTrigged)
+            Instantiate(bullet, firePoint.position, transform.rotation);
     }
+
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+
+        if (collision.CompareTag("Coin"))
+        {
+            Destroy(collision.gameObject);
+            Debug.Log("teste");
+            isTrigged = true;
+        }
+    }
+
 }

@@ -12,9 +12,11 @@ GameObject:
   - component: {fileID: 5700015314526070079}
   - component: {fileID: 5700015314526070078}
   - component: {fileID: 5700015314526071489}
+  - component: {fileID: -2120363248430099551}
+  - component: {fileID: -645821876753679000}
   m_Layer: 0
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -164,3 +166,31 @@ PolygonCollider2D:
       - {x: -0.39999998, y: -0.89}
       - {x: -0.04, y: -1.28}
       - {x: 0.01, y: -1.28}
+--- !u!114 &-2120363248430099551
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5700015314526071488}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2ecb9dabe2d83d41802a0887d8d11fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 5
+  frequency: 5
+  magnitude: 2
+--- !u!114 &-645821876753679000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5700015314526071488}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c996eae84b566774faea134db189911a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 120
