@@ -45,15 +45,23 @@ public class WaterTrigger : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         //Debug.Log("entrei");
-        if(collision.CompareTag("Player"))
+        if (collision.CompareTag("Player"))
+        {
+            GameObject.Find("WaterJumpSound").GetComponent<AudioSource>().Play();
             StartCoroutine("FadeOut");
+        }
+
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
         //Debug.Log("sai");
-        if(collision.CompareTag("Player"))
+        if (collision.CompareTag("Player"))
+        {
+            GameObject.Find("WaterJumpSound").GetComponent<AudioSource>().Stop();
             StartCoroutine("FadeIn");
+        }
+            
     }
 
 

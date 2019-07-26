@@ -6,6 +6,8 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
 
+    public GameObject chest;
+    public Transform chestPlace;
     public int health = 100;
 
     public void TakeDamage(int damage)
@@ -20,6 +22,8 @@ public class Enemy : MonoBehaviour
 
     private void Die()
     {
+        Instantiate(chest, chestPlace.position, chestPlace.rotation);
+        GameObject.Find("EnemyDeadSound").GetComponent<AudioSource>().Play();
         Destroy(gameObject);
     }
 }

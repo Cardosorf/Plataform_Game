@@ -8,6 +8,7 @@ TagManager:
   - WaterGround
   - Coin
   - Enemy
+  - Chest
   layers:
   - Default
   - TransparentFX

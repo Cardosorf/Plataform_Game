@@ -40,18 +40,21 @@ public class Weapon : MonoBehaviour
 
     void Shoot()
     {
-        if(isTrigged)
+        if (isTrigged) { 
+            GameObject.Find("CoinThrowSound").GetComponent<AudioSource>().Play();
             Instantiate(bullet, firePoint.position, transform.rotation);
+        }
     }
 
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-
+        
         if (collision.CompareTag("Coin"))
         {
+            GameObject.Find("CoinThrowSound").GetComponent<AudioSource>().Play();
             Destroy(collision.gameObject);
-            Debug.Log("teste");
+            //Debug.Log("teste");
             isTrigged = true;
         }
     }

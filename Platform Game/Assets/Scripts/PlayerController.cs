@@ -73,6 +73,7 @@ public class PlayerController : MonoBehaviour
         {
             isJumping = true;
             //animator.SetBool("isJumping", true);
+            GameObject.Find("PlayerJumpSound").GetComponent<AudioSource>().Play();
             rb.AddForce(new Vector2(0f, jumpForce));
         }
     }
@@ -153,6 +154,10 @@ public class PlayerController : MonoBehaviour
     {
         EnemyMovement enemyMovement = collision.GetComponent<EnemyMovement>();
 
+        Animator chestAnimator = collision.GetComponent<Animator>();
+
+
+        animator.SetBool("isJumping", false);
         if (collision.CompareTag("Enemy"))
         {
             animator.SetBool("isDead", true);
@@ -162,6 +167,27 @@ public class PlayerController : MonoBehaviour
             rb.gravityScale = 0;
             Invoke("CallScene", 2);
 
+
+        }
+
+        if (collision.CompareTag("Chest"))
+        {
+            GameObject.Find("OpenChestSound").GetComponent<AudioSource>().Play();
+            
+            collision.GetComponent<Animator>().enabled = true;
+            chestAnimator.SetBool("isOpen", false);
+        }
+
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        Animator chestAnimator = collision.GetComponent<Animator>();
+
+        if (collision.CompareTag("Chest"))
+        {
+            //GameObject.Find("OpenChestSound").GetComponent<AudioSource>().Play();
+            chestAnimator.SetBool("isOpen", true);
 
         }
     }

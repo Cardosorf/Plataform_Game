@@ -181,6 +181,7 @@ MonoBehaviour:
   moveSpeed: 5
   frequency: 5
   magnitude: 2
+  hitPlayer: 0
 --- !u!114 &-645821876753679000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -193,4 +194,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c996eae84b566774faea134db189911a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  chest: {fileID: 7372496533382255883, guid: 7d627302905c0bb419da62d2a7b6fc9d, type: 3}
+  chestPlace: {fileID: 0}
   health: 120
