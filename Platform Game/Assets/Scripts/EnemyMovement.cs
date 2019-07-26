@@ -14,6 +14,8 @@ public class EnemyMovement : MonoBehaviour
 
     bool facingRight = false;
 
+    public bool hitPlayer = false;
+
     Vector3 pos, localScale;
 
 
@@ -27,16 +29,19 @@ public class EnemyMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!hitPlayer)
+        {
+            if (pos.x < 3f)
+                facingRight = true;
+            else if (pos.x > 18f)
+                facingRight = false;
 
-        if (pos.x < 3f)
-            facingRight = true;
-        else if (pos.x > 18f)
-            facingRight = false;
+            if (facingRight)
+                MoveRight();
+            else
+                MoveLeft();
+        }
 
-        if (facingRight)
-            MoveRight();
-        else
-            MoveLeft();
     }
 
     private void MoveRight()

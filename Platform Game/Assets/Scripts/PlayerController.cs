@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -47,7 +48,6 @@ public class PlayerController : MonoBehaviour
         if (jump != 0) { 
             Jump();
         }
-
 
         //transform.Translate(Input.GetAxisRaw("Horizontal") * runSpeed * Time.fixedDeltaTime,0f,0f);
 
@@ -147,5 +147,29 @@ public class PlayerController : MonoBehaviour
 
 
     }
+
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        EnemyMovement enemyMovement = collision.GetComponent<EnemyMovement>();
+
+        if (collision.CompareTag("Enemy"))
+        {
+            animator.SetBool("isDead", true);
+            enemyMovement.hitPlayer = true;
+            rb.velocity = Vector2.zero;
+            runSpeed = 0;
+            rb.gravityScale = 0;
+            Invoke("CallScene", 2);
+
+
+        }
+    }
+
+    void CallScene()
+    {
+        SceneManager.LoadScene(1);
+    }
+
 
 }
