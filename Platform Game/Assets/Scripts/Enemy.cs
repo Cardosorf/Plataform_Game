@@ -24,6 +24,8 @@ public class Enemy : MonoBehaviour
     {
         Instantiate(chest, chestPlace.position, chestPlace.rotation);
         GameObject.Find("EnemyDeadSound").GetComponent<AudioSource>().Play();
+        GameObject.Find("Music").GetComponent<AudioSource>().Stop();
+        GameObject.Find("WinSound").GetComponent<AudioSource>().Play();
         Destroy(gameObject);
     }
 }

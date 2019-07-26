@@ -188,6 +188,8 @@ public class PlayerController : MonoBehaviour
         {
             //GameObject.Find("OpenChestSound").GetComponent<AudioSource>().Play();
             chestAnimator.SetBool("isOpen", true);
+            
+            Invoke("CallCredits", 2);
 
         }
     }
@@ -195,6 +197,11 @@ public class PlayerController : MonoBehaviour
     void CallScene()
     {
         SceneManager.LoadScene(1);
+    }
+
+    void CallCredits()
+    {
+        SceneManager.LoadScene(2);
     }
 
 
